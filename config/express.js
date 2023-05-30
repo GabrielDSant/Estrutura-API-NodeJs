@@ -4,10 +4,10 @@ const config     = require('config');
 
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'seu_usuario',
-  password: 'sua_senha',
-  database: 'nome_do_banco_de_dados',
+  host: config.get('server.host'),
+  user: config.get('server.user'),
+  password: config.get('server.password'),
+  database: config.get('server.database'),
 });
 
 module.exports = () => {
