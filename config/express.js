@@ -19,7 +19,7 @@ module.exports = () => {
   // MIDDLEWARES
   app.use(bodyParser.json());
 
-  require('../api/routes/customerWallets')(app);
+  require('../api/routes/user')(app);
 
   return app;
 };

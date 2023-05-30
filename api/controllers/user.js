@@ -1,5 +1,4 @@
 module.exports = () => {
-    const customerWalletsDB = require('../data/customer-wallets.json');
     const controller = {};
 
     controller.createUser = (req, res) => {
