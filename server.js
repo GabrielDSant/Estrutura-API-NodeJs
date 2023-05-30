@@ -5,3 +5,5 @@ const port = app.get('port');
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`)
 });
+
+//Basicamente criamos o controller e a rota. E adicionamos um require() ao /config/express.js
