@@ -2,6 +2,7 @@ module.exports = () => {
     const controller = {};
 
     controller.createUser = (req, res) => {
+      
       const { id, name, email } = req.body;
       const query = 'INSERT INTO users (id, name, email) VALUES (?, ?, ?)';
       connection.query(query, [id, name, email], (err, results) => {
@@ -12,9 +13,11 @@ module.exports = () => {
         }
         res.status(201).json({ id, name, email });
       });
+      
     };
     
     controller.getUsers = (req, res) => {
+      /*
       const query = 'SELECT * FROM users';
       connection.query(query, (err, results) => {
         if (err) {
@@ -24,6 +27,9 @@ module.exports = () => {
         }
         res.json(results);
       });
+      */
+      res.status(201).json({'teste': 'teste'});
+
     };
     
     controller.getUserById = (req, res) => {
