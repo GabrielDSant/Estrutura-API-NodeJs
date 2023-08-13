@@ -5,9 +5,16 @@ module.exports = () => {
 
   controller.echo = async (req, res) => {
     const incomingMessage = req.body.entry[0].changes[0].value.messages[0];
+    const userPhoneNumber = incomingMessage.from;
 
+    // Verifica se já existe uma sessão para o usuário
+    if (!req.session.userSession) {
+      req.session.userSession = {
+        // Outras informações de sessão podem ser adicionadas aqui
+      };
+    }
+    
     // Aqui você pode adicionar a lógica para processar a mensagem e preparar a resposta
-
     const responseMessage = {
       to: incomingMessage.from,
       type: "text",
