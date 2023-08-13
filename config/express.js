@@ -1,17 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const session = require('express-session');
-const mysql = require('mysql2');
+const session = require("express-session");
+const mysql = require("mysql2");
 const config = require("config");
 
-const connection = mysql.createConnection({
-  host: config.get("server.host"),
-  user: config.get("server.user"),
-  password: config.get("server.password"),
-  database: config.get("server.database"),
-});
-
 module.exports = () => {
+  const connection = mysql.createConnection({
+    host: config.get("server.host"),
+    user: config.get("server.user"),
+    password: config.get("server.password"),
+    database: config.get("server.database"),
+  });
+  
   const app = express();
 
   // SETANDO VARIÁVEIS DA APLICAÇÃO
@@ -19,7 +19,6 @@ module.exports = () => {
 
   // MIDDLEWARES
   app.use(bodyParser.json());
-
 
   //Isso aqui é aonde ele faz o gerenciamento de sessões no banco de dados.
   app.use(
@@ -37,7 +36,6 @@ module.exports = () => {
       ),
     })
   );
-
 
   //Debug logger
   var myLogger = function (req, res, next) {
